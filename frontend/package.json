@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "serve --single --listen $PORT dist"
   },
   "dependencies": {
     "@react-leaflet/core": "^3.0.0",
@@ -19,6 +20,7 @@
     "react-leaflet-cluster": "^4.1.3",
     "react-router": "^8.2.0",
     "react-router-dom": "^7.18.1",
+    "serve": "^14.2.6",
     "socket.io-client": "^4.8.3",
     "zod": "^4.4.3",
     "zustand": "^5.0.14"
