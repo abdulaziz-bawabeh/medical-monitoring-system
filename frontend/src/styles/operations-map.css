@@ -1,0 +1,505 @@
+.operations-map-card {
+    margin-top: 17px;
+    overflow: hidden;
+    border: 1px solid #dbe6e9;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 12px 30px rgba(26, 58, 74, 0.045);
+  }
+  
+  .operations-map-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 20px 22px;
+    border-bottom: 1px solid #e4ecef;
+  }
+  
+  .operations-map-card__eyebrow {
+    display: block;
+    color: #14847a;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+  
+  .operations-map-card__header h2 {
+    margin: 5px 0 4px;
+    color: #1c3949;
+    font-size: 18px;
+  }
+  
+  .operations-map-card__header p {
+    margin: 0;
+    color: #7b8f99;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  
+  .operations-map-card__layers {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .operations-map-card__layers-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 3px;
+    color: #758993;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  
+  .operations-map-layer {
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 11px;
+    border: 1px solid #dce6e9;
+    border-radius: 999px;
+    color: #72858f;
+    background: #ffffff;
+    font-size: 9px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .operations-map-layer:hover {
+    border-color: #a9d5d0;
+  }
+  
+  .operations-map-layer--active {
+    border-color: #b9e1dc;
+    color: #126f68;
+    background: #edf9f7;
+  }
+  
+  .operations-map-layer__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .operations-map-layer__dot--facility {
+    background: #1c8b82;
+  }
+  
+  .operations-map-layer__dot--ambulance {
+    background: #287da1;
+  }
+  
+  .operations-map-card__map-wrapper {
+    position: relative;
+  }
+  
+  .operations-map {
+    width: 100%;
+    height: 520px;
+    background: #dce8eb;
+  }
+  
+  /*
+   * Custom resource marker
+   */
+  
+  .medical-map-marker-wrapper {
+    border: 0;
+    background: transparent;
+  }
+  
+  .medical-map-marker {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    box-shadow:
+      0 6px 18px rgba(14, 47, 62, 0.26),
+      0 0 0 1px rgba(15, 51, 67, 0.08);
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease;
+  }
+  
+  .medical-map-marker:hover {
+    transform: scale(1.11);
+    box-shadow:
+      0 9px 23px rgba(14, 47, 62, 0.32),
+      0 0 0 1px rgba(15, 51, 67, 0.08);
+  }
+  
+  .medical-map-marker__content {
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  
+  .medical-map-marker__halo {
+    position: absolute;
+    inset: -8px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: medicalMarkerPulse 2s ease-out infinite;
+  }
+  
+  .medical-map-marker--facility {
+    background: #6d7f88;
+  }
+  
+  .medical-map-marker--facility.medical-map-marker--green {
+    background: #1c956d;
+  }
+  
+  .medical-map-marker--facility.medical-map-marker--red {
+    background: #d64b56;
+  }
+  
+  .medical-map-marker--facility.medical-map-marker--unknown {
+    background: #7a8b94;
+  }
+  
+  .medical-map-marker--ambulance {
+    background: #287da1;
+  }
+  
+  .medical-map-marker--ambulance.medical-map-marker--available {
+    background: #168d82;
+  }
+  
+  .medical-map-marker--ambulance.medical-map-marker--busy {
+    background: #dc9a2f;
+  }
+  
+  .medical-map-marker--ambulance.medical-map-marker--offline {
+    background: #76868e;
+  }
+  
+  .medical-map-marker--ambulance.medical-map-marker--maintenance {
+    background: #765f8c;
+  }
+  
+  /*
+   * Cluster icon
+   */
+  
+  .medical-map-cluster-wrapper {
+    border: 0;
+    background: transparent;
+  }
+  
+  .medical-map-cluster {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 4px solid rgba(255, 255, 255, 0.92);
+    border-radius: 50%;
+    color: #ffffff;
+    background: #0f837b;
+    box-shadow:
+      0 8px 20px rgba(10, 57, 69, 0.27),
+      0 0 0 7px rgba(20, 139, 129, 0.16);
+  }
+  
+  .medical-map-cluster span {
+    font-size: 12px;
+    font-weight: 850;
+  }
+  
+  .medical-map-cluster--medium {
+    background: #176d83;
+    box-shadow:
+      0 8px 20px rgba(10, 57, 69, 0.27),
+      0 0 0 8px rgba(23, 109, 131, 0.17);
+  }
+  
+  .medical-map-cluster--large {
+    background: #c54b57;
+    box-shadow:
+      0 8px 20px rgba(10, 57, 69, 0.27),
+      0 0 0 9px rgba(197, 75, 87, 0.17);
+  }
+  
+  /*
+   * Map legend
+   */
+  
+  .operations-map-legend {
+    position: absolute;
+    z-index: 500;
+    left: 16px;
+    bottom: 16px;
+    min-width: 155px;
+    display: grid;
+    gap: 8px;
+    padding: 12px;
+    border: 1px solid rgba(205, 220, 225, 0.9);
+    border-radius: 13px;
+    color: #395562;
+    background: rgba(255, 255, 255, 0.93);
+    box-shadow: 0 10px 25px rgba(21, 58, 73, 0.13);
+    backdrop-filter: blur(10px);
+  }
+  
+  .operations-map-legend__title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-bottom: 7px;
+    border-bottom: 1px solid #e5ecee;
+    color: #69808b;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  
+  .operations-map-legend > div:not(
+    .operations-map-legend__title
+  ) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    font-weight: 700;
+  }
+  
+  .operations-map-legend__marker {
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    color: #ffffff;
+    box-shadow: 0 3px 8px rgba(18, 56, 70, 0.2);
+    font-size: 11px;
+    font-weight: 900;
+  }
+  
+  .operations-map-legend__marker--facility {
+    background: #1b8b81;
+  }
+  
+  .operations-map-legend__marker--ambulance {
+    background: #287da1;
+  }
+  
+  /*
+   * Popup
+   */
+  
+  .leaflet-popup-content-wrapper {
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(13, 50, 65, 0.2);
+  }
+  
+  .leaflet-popup-content {
+    margin: 16px;
+  }
+  
+  .medical-map-popup {
+    min-width: 225px;
+    color: #294754;
+    font-family: inherit;
+  }
+  
+  .medical-map-popup__eyebrow {
+    display: block;
+    color: #16847a;
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .medical-map-popup h3 {
+    margin: 6px 0 2px;
+    color: #173747;
+    font-size: 15px;
+    line-height: 1.35;
+  }
+  
+  .medical-map-popup__subtitle {
+    margin: 0;
+    color: #82939c;
+    font-size: 9px;
+  }
+  
+  .medical-map-popup__details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin: 14px 0 0;
+  }
+  
+  .medical-map-popup__details > div {
+    padding: 8px;
+    border-radius: 9px;
+    background: #f2f6f7;
+  }
+  
+  .medical-map-popup__details dt {
+    color: #8698a0;
+    font-size: 7px;
+    font-weight: 750;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  .medical-map-popup__details dd {
+    margin: 4px 0 0;
+    color: #294754;
+    font-size: 9px;
+    font-weight: 750;
+  }
+  
+  .medical-map-popup__status {
+    display: inline-flex;
+    align-items: center;
+    min-height: 20px;
+    padding: 0 7px;
+    border-radius: 999px;
+    font-size: 7px;
+    font-weight: 850;
+  }
+  
+  .medical-map-popup__status--green,
+  .medical-map-popup__status--available {
+    color: #187154;
+    background: #e4f6ed;
+  }
+  
+  .medical-map-popup__status--red {
+    color: #ae3843;
+    background: #ffeaec;
+  }
+  
+  .medical-map-popup__status--busy {
+    color: #8a641f;
+    background: #fff4d9;
+  }
+  
+  .medical-map-popup__status--offline,
+  .medical-map-popup__status--maintenance,
+  .medical-map-popup__status--unknown {
+    color: #667880;
+    background: #e8edef;
+  }
+  
+  .medical-map-popup__updated {
+    margin: 12px 0 0;
+    color: #85979f;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+  
+  @keyframes medicalMarkerPulse {
+    0% {
+      transform: scale(0.75);
+      opacity: 0.35;
+    }
+  
+    75%,
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 760px) {
+    .operations-map-card__header {
+      align-items: stretch;
+      flex-direction: column;
+    }
+  
+    .operations-map-card__layers {
+      align-items: stretch;
+      flex-wrap: wrap;
+    }
+  
+    .operations-map-card__layers-label {
+      width: 100%;
+    }
+  
+    .operations-map-layer {
+      flex: 1;
+      justify-content: center;
+    }
+  
+    .operations-map {
+      height: 430px;
+    }
+  
+    .operations-map-legend {
+      left: 10px;
+      bottom: 10px;
+    }
+  }
+  .operations-map-layer__dot--governorate {
+    background: #6d62a4;
+  }
+  
+  .governorate-boundary-tooltip {
+    padding: 6px 9px;
+    border: 1px solid rgba(24, 103, 101, 0.18);
+    border-radius: 8px;
+    color: #173f46;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 6px 18px rgba(18, 59, 68, 0.16);
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 800;
+  }
+  
+  .governorate-boundary-tooltip::before {
+    display: none;
+  }
+  .medical-map-marker--emergency {
+    background: #c83f4c;
+  }
+  
+  .medical-map-marker--emergency.medical-map-marker--open {
+    background: #d13f4c;
+  }
+  
+  .medical-map-marker--emergency.medical-map-marker--awaiting_manager_confirmation {
+    background: #d58c28;
+  }
+  
+  .medical-map-marker--emergency.medical-map-marker--dispatched {
+    background: #386f9d;
+  }
+  
+  .medical-map-marker--emergency.medical-map-marker--resolved {
+    background: #298061;
+  }
+  
+  .operations-map-layer__dot--emergency {
+    background: #cf404d;
+  }
+  
+  .operations-map-legend__marker--emergency {
+    background: #cf404d;
+  }
+  .operations-map-layer__dot--route {
+    background: #0f766e;
+  }
+  
+  .operations-map-legend__marker--route {
+    color: #ffffff;
+    background: #0f766e;
+  }

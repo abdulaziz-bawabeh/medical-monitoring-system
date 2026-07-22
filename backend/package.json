@@ -1,0 +1,40 @@
+{
+  "name": "medical-monitoring-backend",
+  "version": "1.0.0",
+  "description": "Backend API for the medical monitoring system",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "db:test": "node src/scripts/testDatabase.js",
+    "db:migrate": "node src/scripts/runMigrations.js",
+    "auth:generate-secret": "node src/scripts/generateJwtSecret.js",
+    "auth:create-manager": "node src/scripts/createHealthManager.js",
+    "db:seed-dashboard": "node src/scripts/seedDashboardData.js",
+    "db:cleanup-history": "node src/scripts/cleanupLiveMonitoringHistory.js",
+    "geo:download-governorates": "node src/scripts/downloadSyriaGovernorateBoundaries.js",
+    "geo:import-governorates": "node src/scripts/importSyriaGovernorateBoundaries.js",
+    "demo:seed-browser": "node src/scripts/seedBrowserDemoData.js",
+    "history:purge": "node src/scripts/purgeHistoricalTelemetry.js",
+"history:purge:dry-run": "node src/scripts/purgeHistoricalTelemetry.js --dry-run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@inquirer/prompts": "^8.5.2",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.11.0",
+    "pg": "^8.22.0",
+    "socket.io": "^4.8.3",
+    "zod": "^4.4.3"
+  }
+}
